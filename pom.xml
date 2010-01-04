@@ -4,7 +4,7 @@
     <groupId>com.cforcoding.jmd</groupId>
     <artifactId>jmd</artifactId>
     <packaging>jar</packaging>
-    <version>0.8.0</version>
+    <version>0.8.1</version>
     <name>jmd</name>
     <url>http://maven.apache.org</url>
     <properties>

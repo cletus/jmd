@@ -228,7 +228,7 @@ public class MarkDown {
             "^" +                      // start of line (with MULTILINE)
             "<(%s)" +                  // start tag = $2
             "\\b" +                    // word break
-            "(.*\\n)*?" +              // any number of lines, minimally matching
+            "(?>.*\\n)*?" +            // any number of lines, minimally matching
             "</\\2>" +                 // the matching end tag
             "[ \\t]*" +                // trailing spaces/tags
             "(?=\\n+|\\Z)" +           // followed by a newline or end of
@@ -241,7 +241,7 @@ public class MarkDown {
             "^" +                      // start of line (with MULTILINE)
             "<(%s)" +                  // start tag = $2
             "\\b" +                    // word break
-            "(.*\\n)*?" +              // any number of lines, minimally matching
+            "(?>.*\\n)*?" +            // any number of lines, minimally matching
             ".*</\\2>" +                 // the matching end tag
             "[ \\t]*" +                // trailing spaces/tags
             "(?=\\n+|\\Z)" +           // followed by a newline or end of

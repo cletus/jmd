@@ -48,7 +48,7 @@ public class TextUtils {
         if (result) {
             StringBuffer sb = new StringBuffer();
             do {
-                m.appendReplacement(sb, callback.match(m.toMatchResult()));
+                m.appendReplacement(sb, Matcher.quoteReplacement(callback.match(m.toMatchResult())));
                 result = m.find();
             } while (result);
             m.appendTail(sb);
@@ -83,11 +83,11 @@ public class TextUtils {
     public static <T> List<T> tokenize(String pattern, String text, TokenizeCallback<T> callback) {
         return tokenize(Pattern.compile(pattern), text, callback);
     }
-    
+
     public static <T> List<T> tokenize(String pattern, int flags, String text, TokenizeCallback<T> callback) {
         return tokenize(Pattern.compile(pattern, flags), text, callback);
     }
-    
+
     public static <T> List<T> tokenize(Pattern pattern, String text, TokenizeCallback<T> callback) {
         List<T> ret = new ArrayList<T>();
         Matcher m = pattern.matcher(text);
@@ -110,7 +110,7 @@ public class TextUtils {
         }
         return ret;
     }
-    
+
     public static String repeat(String s, int count) {
         StringBuilder sb = new StringBuilder(s.length() * count);
         while (count-- > 0) {
